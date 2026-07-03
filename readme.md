@@ -10,7 +10,7 @@ CREATE TABLE heroes (
 
 Authentication/authorization model design:
 
-User has a username and password, password is stored in the database as has with bcrypt encryption and users 
+User has a username and password, password is stored in the database as hash with bcrypt encryption and users 
 password attempt is checked against that. Using HTTPS for securing the traffic between client and server.
 
 Docker:
