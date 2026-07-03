@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Heroes Configurator</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="/bundle.js"></script>
+    <script>
+      window.onload = function () {
+        main.main();
+      };
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@500&amp;family=Hanken+Grotesk:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#39393d",
+                    "surface-dim": "#131317",
+                    "background": "#0e0e12",
+                    "secondary-fixed": "#f9d8ff",
+                    "secondary": "#ecb1ff",
+                    "secondary-container": "#d05bff",
+                    "error": "#ffb4ab",
+                    "surface-container": "#1f1f23",
+                    "on-background": "#e4e1e7",
+                    "on-error-container": "#ffdad6",
+                    "inverse-primary": "#006970",
+                    "tertiary-fixed": "#ffd9e0",
+                    "surface-variant": "#353439",
+                    "on-error": "#690005",
+                    "on-primary": "#00363a",
+                    "surface-container-lowest": "#0e0e12",
+                    "outline-variant": "#3b494b",
+                    "inverse-surface": "#e4e1e7",
+                    "on-tertiary-container": "#bb0058",
+                    "surface": "#131317",
+                    "on-primary-fixed-variant": "#004f54",
+                    "on-primary-container": "#006970",
+                    "on-secondary-container": "#480063",
+                    "on-surface": "#e4e1e7",
+                    "on-secondary-fixed": "#320046",
+                    "primary": "#dbfcff",
+                    "primary-fixed-dim": "#00dbe9",
+                    "on-secondary": "#520070",
+                    "outline": "#849495",
+                    "error-container": "#93000a",
+                    "on-primary-fixed": "#002022",
+                    "secondary-fixed-dim": "#ecb1ff",
+                    "surface-container-low": "#1b1b1f",
+                    "tertiary-container": "#ffccd6",
+                    "primary-container": "#00f0ff",
+                    "on-secondary-fixed-variant": "#75009e",
+                    "surface-container-high": "#2a292e",
+                    "inverse-on-surface": "#303034",
+                    "surface-tint": "#00dbe9",
+                    "surface-container-highest": "#353439",
+                    "on-surface-variant": "#b9cacb",
+                    "on-tertiary-fixed": "#3f0019",
+                    "tertiary": "#fff3f4",
+                    "on-tertiary": "#66002c",
+                    "primary-fixed": "#7df4ff",
+                    "tertiary-fixed-dim": "#ffb1c3",
+                    "on-tertiary-fixed-variant": "#8f0041"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "4px",
+                    "margin": "32px",
+                    "xl": "80px",
+                    "lg": "48px",
+                    "gutter": "24px",
+                    "md": "24px",
+                    "base": "8px",
+                    "sm": "12px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Sora"],
+                    "label-md": ["JetBrains Mono"],
+                    "headline-md": ["Sora"],
+                    "label-sm": ["JetBrains Mono"],
+                    "headline-xl": ["Sora"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "body-md": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0e0e12;
+            color: #e4e1e7;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .hero-row-glow:hover {
+            box-shadow: inset 0 0 20px rgba(0, 219, 233, 0.1), 0 0 15px rgba(208, 91, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .hyper-flow-gradient {
+            background: linear-gradient(135deg, #00dbe9 0%, #d05bff 50%, #ff2e95 100%);
+        }
+
+        .neon-glow-primary:focus {
+            box-shadow: 0 0 15px rgba(0, 219, 233, 0.4);
+            border-color: #00dbe9;
+        }
+
+        .neon-text-glow {
+            text-shadow: 0 0 10px rgba(0, 219, 233, 0.5);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0e0e12;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #00dbe9, #d05bff);
+            border-radius: 10px;
+        }
+
+        .scanning-line {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: scan 3s infinite linear;
+        }
+
+        @keyframes scan {
+            0% { left: -100%; }
+            100% { left: 200%; }
+        }
+
+        .bg-gradient-mesh {
+            background-color: #0e0e12;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(0, 219, 233, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(208, 91, 255, 0.15) 0px, transparent 50%),
+                radial-gradient(at 50% 100%, rgba(255, 46, 149, 0.1) 0px, transparent 50%);
+        }
+    </style>
+</head>
+<body class="font-body-md bg-gradient-mesh min-h-screen">
+<!-- Main Content Canvas (Full Width) -->
+<main class="max-w-7xl mx-auto p-margin relative z-10">
+<!-- Page Header -->
+<header class="mb-xl text-center md:text-left">
+<h1 class="font-headline-xl text-headline-xl text-primary-fixed-dim mb-sm">Hero Configurator</h1>
+<p class="text-on-surface-variant text-body-lg max-w-2xl">Here you can edit the hero name and his/her attack and defense power. Also you can determine the special skill id.</p>
+</header>
+<!-- Configurator Table Container -->
+<section class="glass-card rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+<!-- Table Header -->
+<div class="grid grid-cols-12 gap-gutter px-md py-lg bg-white/5 border-b border-white/10 text-primary font-label-md text-label-sm uppercase tracking-widest">
+<div class="col-span-3">Hero Name</div>
+<div class="col-span-2 text-center">Attack</div>
+<div class="col-span-2 text-center">Defense</div>
+<div class="col-span-4">Special Skill ID</div>
+<div class="col-span-1 text-center">Action</div>
+</div>
+<!-- Add Hero Form Row -->
+<div class="bg-white/5 p-lg border-t border-white/10">
+<div class="grid grid-cols-12 gap-gutter items-center">
+<div class="col-span-3">
+<input class="bg-surface-container-lowest/50 border border-white/20 text-on-surface font-body-md text-body-md px-sm py-sm w-full rounded-lg focus:border-primary" id="new-name" placeholder="Codename..." type="text"/>
+</div>
+<div class="col-span-2">
+<input class="bg-surface-container-lowest/50 border border-white/20 text-on-surface font-label-md text-label-md px-sm py-sm w-full rounded-lg text-center focus:border-primary" id="new-atk" placeholder="ATK" type="number"/>
+</div>
+<div class="col-span-2">
+<input class="bg-surface-container-lowest/50 border border-white/20 text-on-surface font-label-md text-label-md px-sm py-sm w-full rounded-lg text-center focus:border-primary" id="new-def" placeholder="DEF" type="number"/>
+</div>
+<div class="col-span-4">
+<input class="bg-surface-container-lowest/50 border border-white/20 text-on-surface font-body-md text-body-md px-sm py-sm w-full rounded-lg focus:border-primary" id="new-skill" placeholder="Skill Name..." type="text"/>
+</div>
+<div class="col-span-1 flex justify-center">
+<button id="add-hero-button" class="hyper-flow-gradient text-white w-12 h-12 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(208,91,255,0.4)] hover:scale-110 active:scale-95 transition-all group overflow-hidden relative">
+<span class="material-symbols-outlined relative z-10">add</span>
+<div class="scanning-line"></div>
+</button>
+</div>
+</div>
+</div>
+<div id="hero-list">
+</div>
+</section>
+<footer class="mt-xl py-lg border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-md text-on-surface-variant/50 font-label-sm">
+<div> Hero Configurator by Olli Kettunen</div>
+</footer>
+</main>
+<style>
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes loading {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(300%); }
+    }
+</style>
+</body></html>

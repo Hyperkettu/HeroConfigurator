@@ -1,0 +1,14 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: hero-app:latest
+    container_name: hero_app_container
+    ports: 
+      - "3004:3004"
+    environment: 
+      -PORT: 3004
+      -NODE_ENV: production
+      -DB_HOST: host.docker.internal
+    restart: always

@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+     "rootDir": "../",
+     "outDir": "../server/dist/public",
+
+    "module": "commonjs",
+    "target": "es6",
+    "esModuleInterop": true,
+		"types": [
+			"node"
+		],
+    "lib": [
+			"dom",
+			"es6",
+			"es2015.iterable",
+			"es2015.promise",
+			"ES2019",
+			"scripthost"
+		],
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "strict": true,
+    "jsx": "react-jsx",
+    "verbatimModuleSyntax": false,
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force",
+    "skipLibCheck": true,
+  },
+  	"include": [
+		"./src/"
+	],
+  	"exclude": [
+		"node_modules"
+	]
+}
